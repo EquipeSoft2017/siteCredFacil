@@ -44,7 +44,7 @@ h4{
 }
 
 a {
-  color: #c52d2f;
+  color: #cccccc;
   -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -52,7 +52,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #d43133;
+  color: #cccccc;
 }
 
 hr {
@@ -115,12 +115,12 @@ a:focus {
 }
 
 body > section {
-  padding: 70px 0;
+  padding: 10px 0;
 }
 
 .center {
   text-align: center;
-  padding-bottom: 55px;
+  padding-bottom: 0px;
 }
 
 .scaleIn {
@@ -551,7 +551,7 @@ input.search-form:hover {
 
 #feature {
   background: #f2f2f2;
-  padding-bottom: 40px;
+  padding-bottom: 5px;
 }
 
 .features{
@@ -2480,7 +2480,7 @@ shortcodes page css
 ************************/
 #bottom {
   background: #f5f5f5;
-  border-bottom: 5px solid #c52d2f;
+  border-bottom: 5px solid #cccccc;
   font-size: 14px;
 }
 
@@ -2508,7 +2508,7 @@ shortcodes page css
 }
 
 #bottom ul li a:hover {
-  color: #c52d2f;
+  color: #ffffff;
 }
 
 #bottom .widget {
@@ -2527,7 +2527,7 @@ shortcodes page css
 }
 
 #footer a:hover {
-  color: #c52d2f;
+  color: #cccccc;
 }
 
 #footer ul {

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Services | Corlate</title>
+    <title>Serviços - CredFácil</title>
     
     <!-- core CSS -->
+    <link href='http://fonts.googleapis.com/css?family=OpenSans:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -84,11 +86,69 @@
     <section id="feature" class="transparent-bg">
         <div class="container">
            <div class="center wow fadeInDown">
-                <h2>Serviços</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <h2>Simule seu empréstimo de forma prática.</h2>
+                <!--
+                <p class="lead">incididunt ut <br> et </p>
+                -->
             </div>
         </div>
     </section><!--/#feature-->
+    
+    <section id="contact-page">
+		<div class="container">
+			<div class="formulario">  
+
+            <form action="simulador.php" method="post" id="validate">                  
+                    
+                <label>* Nome</label>
+                <input name=txt_nome type="text" class="g" required='Valor requerido' placeholder='Digite seu nome:'>
+
+                <label>* E-mail</label>
+                <input name=txt_email type="text" class="g" required placeholder='Digite seu email:'>
+
+                <label>Telefone</label>
+                <input name=txt_telefone type="text" class="p" id="telefone" required placeholder='Digite seu telefone:'>
+
+                <label>Celular</label>
+                <input name=txt_celular type="text" class="p" id="celular" required placeholder='Digite seu celular:'>
+
+                <label>Valor Desejado</label>
+                <input name=txt_valor type="text" class="p" id="valor" required>
+
+                <label>N° de Parcelas</label>
+                <select name=txt_parcela class="pp">
+                  <option value=1>1</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5</option>
+                  <option value=6>6</option>
+                  <option value=7>7</option>
+                  <option value=8>8</option>
+                  <option value=9>9</option>
+                  <option value=10>10</option>
+                  <option value=11>11</option>
+                  <option value=12>12</option>
+                </select>
+
+                <label>Cartão de Crédito</label>
+                <select name=txt_cartao class="p">
+                    <option id=id_visa value=Visa>Visa</option>
+                    <option id=id_master value=MasterCard>MarterCard</option>
+                    <option id=id_itau value=Itaucard>Itaucard</option>
+                    <option id=id_hiper value=Hipercard>Hipercard</option>
+                    <option id=id_dinners value=Dinners>Dinners</option>
+                    <option id=id_rede value=RedeCard>Rede Card</option>
+                </select>
+        
+                <input type="submit" value="Enviar">
+
+            </form>
+    	</div><!--/formulario-->
+		</div>
+		<!--/.container-->
+	</section>
+	<!--/#contact-page-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -108,11 +168,20 @@
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.zebra-datepicker.js"></script>
+    
+    <!-- 
+        <script src="js/jquery.js"></script>
+    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
+
+    -->
 </body>
 </html>
