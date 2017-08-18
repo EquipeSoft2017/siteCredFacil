@@ -3,23 +3,23 @@
 require_once '../../valida.php';
 require_once '../../conecta.php';
 
-/** Paginação 
+//Paginação 
 //pega o número da página senão atribui 1
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;	
 
 //seleciona todos os registros
-$result_ft = "SELECT * FROM fts WHERE active = 1";
-$resultado_ft = mysqli_query($connect, $result_ft);
+$result_sm = "SELECT * FROM simulacoes WHERE active = 1";
+$resultado_sm = mysqli_query($link, $result_sm);
 
 //realiza a contagem 
-$total_fts = mysqli_num_rows($resultado_ft);
+$total_sms = mysqli_num_rows($resultado_sm);
 //echo('<br><br><br><br>'.$total); 
 
 //quantidade de itens por página
 $quantidade_pg = 10;
 
 //calculo do número de páginas 
-$num_pagina = ceil($total_fts / $quantidade_pg);
+$num_pagina = ceil($total_sms / $quantidade_pg);
 
 //calculo do inicio da visualização
 $inicio = ($quantidade_pg * $pagina) - $quantidade_pg;
@@ -113,28 +113,30 @@ $pagina_posterior = $pagina + 1;
 					<tr>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Código</th>
 						<th class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Cliente</th>
-						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Valor</th>
-						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Plano</th>
-						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Data</th>
+						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Valor Total</th>
+						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Cartão</th>
+						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Qtd Parc.</th>
+						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Vlr. Parc.</th>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Ações</th>
 					</tr>
 				</thead>
 				<tbody>
 			<?php
-			/*
+			
 			//selecionar os itens a serem mostrados na página
 			
-			$result_fts = "SELECT id,receita,cardapio,nome,quantidade,active FROM fts WHERE active = 1 ORDER BY receita ASC LIMIT $inicio, $quantidade_pg";
-			$resultado_fts = mysqli_query($connect, $result_fts);
+			$result_sms = "SELECT * FROM simulacoes WHERE active = 1 ORDER BY data_criacao ASC LIMIT $inicio, $quantidade_pg";
+			$resultado_sms = mysqli_query($link, $result_sms);
 
-			if($resultado_fts->num_rows > 0) {
-				while($row = $resultado_fts->fetch_assoc()) {
+			if($resultado_sms->num_rows > 0) {
+				while($row = $resultado_sms->fetch_assoc()) {
 					echo "<tr>
 						<td>".$row['id']."</td>
-						<td>".mb_convert_case($row['receita'],MB_CASE_UPPER)."</td>
-						<td>".mb_convert_case($row['cardapio'],MB_CASE_UPPER)."</td>
-						<td>".mb_convert_case($row['nome'],MB_CASE_UPPER)."</td>
-						<td>".mb_convert_case($row['quantidade'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['cliente'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['valor_total'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['cartao'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['qtd_parcela'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['valor_parcela'],MB_CASE_UPPER)."</td>
 						<td>
 							<a href='edit.php?id=".$row['id']."'><button class='btn btn-xs btn-warning active' type='button'><span class='glyphicon glyphicon-edit'></span></button></a>
 							<a href='remove.php?id=".$row['id']."'><button class='btn btn-xs btn-danger active' type='button'><span class='glyphicon glyphicon-remove-sign'></span></button></a>
@@ -144,7 +146,7 @@ $pagina_posterior = $pagina + 1;
 			} else {
 				echo "<tr><td colspan='5'><center>Sem dados para essa funcionalidade.</center></td></tr>";
 			}
-			*/
+			
 			?>
 				</tbody>
 			</table>
@@ -161,37 +163,33 @@ $pagina_posterior = $pagina + 1;
 		<ul class="pagination">
 		<li>
 			<?php 
-			/*
+			
 			if($pagina_anterior != 0){
 				echo"
-				<a href='http://localhost/sisbiv2/ficha-tecnica/ficha-tecnica.php?pagina=$pagina_anterior' aria-label='Previus'>
+				<a href='http://localhost/siteCredFacil/cred/sis/simulacao/simulacao.php?pagina=$pagina_anterior' aria-label='Previus'>
 				<span aria-hidden='true'>&raquo;</span>
 				</a>
 				";	
 			}
-			*/
+			
 			?>	
 				
 		</li>
 			<?php 
-			/*
 			//Paginação
 			for($i=1; $i < $num_pagina + 1; $i++){
-				echo"<li><a href='http://localhost/sisbiv2/ficha-tecnica/ficha-tecnica.php?pagina=$i'>$i</a></li>";
+				echo"<li><a href='http://localhost/siteCredFacil/cred/sis/simulacao/simulacao.php?pagina=$i'>$i</a></li>";
 			}
-			*/
 			?>		
 		<li>
 			<?php 
-			/*
 			if($pagina_posterior != 0){
 				echo"
-				<a href='http://localhost/sisbiv2/ficha-tecnica/ficha-tecnica.php?pagina=$num_pagina' aria-label='Previus'>
+				<a href='http://localhost/siteCredFacil/cred/sis/simulacao/simulacao.php?pagina=$num_pagina' aria-label='Previus'>
 				<span aria-hidden='true'>&raquo;</span>
 				</a>
 				";	
 			}
-			*/
 			?>		
 		</li>
 		</ul>
