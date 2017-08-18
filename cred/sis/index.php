@@ -39,9 +39,9 @@ require ('../valida.php');
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operacional<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Cadastro de Usuário</a></li>
+                  <li><a href="usuario/usuario.php">Cadastro de Usuário</a></li>
                   <li><a href="#">Cadastro de Cliente</a></li>
-                  <li><a href="#">Cadastro de Taxas</a></li>
+                  <li><a href="taxa/taxa.php">Cadastro de Taxa</a></li>
                 </ul>
             </li>
           </ul>
