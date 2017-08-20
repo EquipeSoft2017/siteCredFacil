@@ -16,27 +16,14 @@ if($_POST) {
 
 	//dados do formulario
 	$nome = $_POST['nome'];
-	$funcao = $_POST['funcao'];
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-	$tipo = $_POST['tipo'];
-	$selecione = "Selecione";
+	$celular = $_POST['celular'];
+	
 
-	if($tipo == $selecione){
-		echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/usuario/create.php'>
-				<script type='text/javascript'>
-						alert('Selecione o tipo de usuário corretamente');
-				</script>
-			";
-			exit;
-	}
-
-$sql = "INSERT INTO `usuarios` (`id`, `nome`, `funcao`, `email`, `senha`, `tipo`, `dt_cadastro`, `dt_atualizado`, `active`) VALUES (NULL, '".$nome."', '".$funcao."', '".$email."', '".$senha."', '".$tipo."',  DEFAULT, DEFAULT, DEFAULT)";
+$sql = "INSERT INTO `clientes` (`id`, `nome`, `celular`, `dt_cadastro`, `dt_atualizado`, `active`) VALUES (NULL, '".$nome."', '".$celular."', DEFAULT, DEFAULT, DEFAULT)";
 
 if ($link->query($sql) === TRUE) {
 	echo "
-			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/usuario/usuario.php'>
+			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/cliente/cliente.php'>
 				<script type='text/javascript'>
 						alert('Cadastro realizado com sucesso!');
 				</script>

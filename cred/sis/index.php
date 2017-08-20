@@ -40,7 +40,7 @@ require ('../valida.php');
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operacional<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="usuario/usuario.php">Cadastro de Usuário</a></li>
-                  <li><a href="#">Cadastro de Cliente</a></li>
+                  <li><a href="cliente/cliente.php">Cadastro de Cliente</a></li>
                   <li><a href="taxa/taxa.php">Cadastro de Taxa</a></li>
                 </ul>
             </li>
