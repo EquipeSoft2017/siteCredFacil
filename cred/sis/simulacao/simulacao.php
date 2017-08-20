@@ -90,15 +90,13 @@ $pagina_posterior = $pagina + 1;
 					<select class="col-sm-10 form-control" id="rct" name="rct">	
 						<option>Localizar Simulação</option>
 						<?php
-							/*
-							$result_fss = "SELECT id, nome FROM preparacoes WHERE active = 1 ORDER BY nome ASC";
-							$resultado_fss = mysqli_query($connect, $result_fss);
-								while($rows_fss = mysqli_fetch_assoc($resultado_fss)){
+							$result_ssm = "SELECT id, cliente FROM simulacoes WHERE active = 1 ORDER BY cliente ASC";
+							$resultado_ssm = mysqli_query($link, $result_ssm);
+								while($rows_ssm = mysqli_fetch_assoc($resultado_ssm)){
 									echo"
-										<option>".mb_convert_case($rows_fss['nome'], MB_CASE_UPPER)."</option> 
+										<option>".mb_convert_case($rows_ssm['cliente'], MB_CASE_UPPER)."</option> 
 										";
 							} 
-									*/
 						?>
 					</select>
 	        		<button class="btn btn-success" type="submit" name="enviar">
@@ -112,11 +110,12 @@ $pagina_posterior = $pagina + 1;
 				<thead class="thead-inverse">
 					<tr>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Código</th>
-						<th class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Cliente</th>
-						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Valor Total</th>
-						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Cartão</th>
+						<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Cliente</th>
+						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Valor Total</th>
+						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Cartão</th>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Qtd Parc.</th>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Vlr. Parc.</th>
+						<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Data</th>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Ações</th>
 					</tr>
 				</thead>
@@ -125,7 +124,7 @@ $pagina_posterior = $pagina + 1;
 			
 			//selecionar os itens a serem mostrados na página
 			
-			$result_sms = "SELECT * FROM simulacoes WHERE active = 1 ORDER BY data_criacao ASC LIMIT $inicio, $quantidade_pg";
+			$result_sms = "SELECT * FROM simulacoes WHERE active = 1 ORDER BY data_criacao DESC LIMIT $inicio, $quantidade_pg";
 			$resultado_sms = mysqli_query($link, $result_sms);
 
 			if($resultado_sms->num_rows > 0) {
@@ -133,11 +132,13 @@ $pagina_posterior = $pagina + 1;
 					echo "<tr>
 						<td>".$row['id']."</td>
 						<td>".mb_convert_case($row['cliente'],MB_CASE_UPPER)."</td>
-						<td>".mb_convert_case($row['valor_total'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case('R$ '.$row['valor_total'],MB_CASE_UPPER)."</td>
 						<td>".mb_convert_case($row['cartao'],MB_CASE_UPPER)."</td>
 						<td>".mb_convert_case($row['qtd_parcela'],MB_CASE_UPPER)."</td>
-						<td>".mb_convert_case($row['valor_parcela'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case('R$ '.$row['valor_parcela'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['data_criacao'],MB_CASE_UPPER)."</td>
 						<td>
+							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-info active' type='button'><span class='glyphicon glyphicon-eye-open'></span> </button></a>
 							<a href='edit.php?id=".$row['id']."'><button class='btn btn-xs btn-warning active' type='button'><span class='glyphicon glyphicon-edit'></span></button></a>
 							<a href='remove.php?id=".$row['id']."'><button class='btn btn-xs btn-danger active' type='button'><span class='glyphicon glyphicon-remove-sign'></span></button></a>
 						</td>

@@ -47,13 +47,13 @@ require ('../valida-op.php');
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Simulação</a></li>
+                <li><a href="simulacao/simulacao-op.php">Simulação</a></li>
                 <li><a href="#">Empréstimo</a></li>
                 <li><a href="#">Contrato</a></li>
               </ul>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">s
             <li>
               <a><?php
                     $login_session=$_SESSION['login_user'];

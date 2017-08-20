@@ -38,7 +38,7 @@ if (isset($_POST['submit']))
         }
     } else {
         echo "<script type='text/javascript'>alert('Usuário ou senha inválidos')</script>";
-        echo "<script language='javascript' type='text/javascript'> location.href='../index.html' </script>";
+        echo "<script language='javascript' type='text/javascript'> location.href='../index.php' </script>";
     }
 
 

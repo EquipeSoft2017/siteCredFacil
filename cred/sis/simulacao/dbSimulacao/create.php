@@ -23,11 +23,28 @@ if($_POST) {
 	$qtd_parcela = $_POST['qtd_parcela'];
 	$valor_total = 0;
 	$cartao = $_POST['cartao'];
-	$data_criacao = date('d/m/Y');
-	$data_atualizacao = date('d/m/Y');
+	$data_criacao = date('Y-m-d H:i:s'); 
+	$data_atualizacao = date('Y-m-d H:i:s');
 	$operador = $_SESSION['login_admin'];
 	$observacao = strtoupper(preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities(trim($_POST['observacao']))));
 	$selecione = "Selecione";
+
+	/*
+	echo($cliente.'<br>');
+	echo($email.'<br>');
+	echo($fone.'<br>');
+	echo($cel.'<br>');
+	echo($valor.'<br>');
+	echo($qtd_parcela.'<br>');
+	echo($valor_total.'<br>');
+	echo($cartao.'<br>');
+	echo($data_criacao.'<br>');
+	echo($data_atualizacao.'<br>');
+	echo($operador.'<br>');
+	echo($observacao.'<br>');
+	echo($selecione.'<br>');
+	echo('------------------------------------------------------------------------------<br>');
+	*/
 
 	if($cartao == $selecione OR $qtd_parcela == $selecione ){
 		echo "
@@ -40,7 +57,7 @@ if($_POST) {
 	}
 
 	//Querie que retorna a taxa de juros
-    $qry = mysqli_query($link, "SELECT taxa FROM taxas WHERE cartao = '$cartao'");
+    $qry = mysqli_query($link, "SELECT taxa FROM taxas WHERE bandeira = '$cartao'");
 
     //Tratamento dos dados retornados
     while ($ex = $qry->fetch_assoc()) {
@@ -54,11 +71,29 @@ if($_POST) {
     $rt = $tx_juros * 100; // taxa de juros na forma percentual
     $coeficiente = $tx_juros/(1-(1/(1+$tx_juros)**$qtd_parcela)); //calculo do coeficiente
     $valor_parcela = $valor * $coeficiente; // calculo do valor da parcela
-    echo round($valor_parcela , 2 ); // arredondamento do valor da parcela para valor financeiro
+    //round($valor_parcela , 2 ); // arredondamento do valor da parcela para valor financeiro
     $valor_total = $valor_parcela * $qtd_parcela; // calculo do valor total do emprestimo
-    echo round($valor_total , 2); // arredondamento do valor total do emprestimo para valor financeiro
+    //round($valor_total , 2); // arredondamento do valor total do emprestimo para valor financeiro
 
+    /*
+    echo($cliente.'<br>');
+	echo($email.'<br>');
+	echo($fone.'<br>');
+	echo($cel.'<br>');
+	echo($cartao.'<br>');
+	echo($valor.'<br>');
+	echo($qtd_parcela.'<br>');
+	echo(round($valor_parcela , 2).'<br>');
+	echo(round($valor_total , 2).'<br>');
+	echo($data_criacao.'<br>');
+	echo($data_atualizacao.'<br>');
+	echo($operador.'<br>');
+	echo($observacao.'<br>');
+	echo('1 <br>');
+	echo($selecione.'<br>');
+	*/
 
+    
 	$sqlSm = "INSERT INTO simulacoes (cliente, email, fone, cel, cartao, valor, qtd_parcela, valor_parcela, valor_total, data_criacao, data_atualizacao, operador, observacao, active) VALUES ('$cliente', '$email', '$fone', '$cel', '$cartao', '$valor', '$qtd_parcela', '$valor_parcela', '$valor_total', '$data_criacao', '$data_atualizacao', '$operador', '$observacao', 1)";
 
 	if($link->query($sqlSm) === TRUE){
@@ -76,7 +111,9 @@ if($_POST) {
 				</script>
 				";
 		}
-		$link->close(); 
+
+	$link->close(); 
+	
 }
 
 ?>

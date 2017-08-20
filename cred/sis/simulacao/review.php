@@ -1,23 +1,23 @@
 <?php 
-require_once '../valida.php';
-require_once '../db_connect.php';
+require_once '../../valida.php';
+require_once '../../conecta.php';
 
 if($_GET['id']) {
 	$id = $_GET['id'];
 
-	$sql = "SELECT * FROM produtos WHERE id = {$id}";
-	$result = $connect->query($sql);
+	$sql = "SELECT * FROM simulacoes WHERE id = {$id}";
+	$result = $link->query($sql);
 
 	$data = $result->fetch_assoc();
 
-	$connect->close();
+	$link->close();
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SISBI - Cadastro de Unidade</title>
+	<title>SIS Control</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -33,15 +33,19 @@ if($_GET['id']) {
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="../index.php">SISBI - Controle de Produção</a>
+          <a class="navbar-brand" href="../index.php">SIS Control</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a><?php
-                    $login_session=$_SESSION['login_user'];
-                    echo ($login_session);
-                    ?></a></li>
-              <li><a href="../logout.php">Sair</a></li>
+            <li>
+            	<a>
+            		<?php
+		                $login_session=$_SESSION['login_admin'];
+		                    echo ($login_session);
+		            ?>
+		        </a>
+		    </li>
+            <li><a href="../logout.php">Sair</a></li>
           </ul>
         </div>
       </div>
@@ -49,7 +53,7 @@ if($_GET['id']) {
 <br>
 <body>
 	<div class="container-fluid">
-		<h1 class="page-header">Visualizar Produtos</h1>
+		<h4 class="page-header">Visualizar Simulação de Empréstimo</h4>
 		<div class="container">
 		<form class="form-horizontal">
 			<div class="form-group">
@@ -59,33 +63,57 @@ if($_GET['id']) {
     			</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Nome:</label>
+				<label class="col-sm-2 control-label">Cliente:</label>
 				<div class="col-sm-10">
-      				<p class="form-control"><?php echo mb_convert_case($data['nome'],MB_CASE_UPPER) ?></p>
+      				<p class="form-control"><?php echo mb_convert_case($data['cliente'],MB_CASE_UPPER) ?></p>
     			</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Und:</label>
+				<label class="col-sm-2 control-label">Email:</label>
 				<div class="col-sm-10">
-      				<p class="form-control"><?php echo mb_convert_case($data['unidade'],MB_CASE_UPPER) ?></p>
+      				<p class="form-control"><?php echo mb_convert_case($data['email'],MB_CASE_UPPER) ?></p>
     			</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Preço:</label>
+				<label class="col-sm-2 control-label">Fone:</label>
 				<div class="col-sm-10">
-      				<p class="form-control"><?php echo ("R$ ".$data['preco']) ?></p>
+      				<p class="form-control"><?php echo $data['fone']?></p>
     			</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Fator de Correção:</label>
+				<label class="col-sm-2 control-label">Celular:</label>
 				<div class="col-sm-10">
-      				<p class="form-control"><?php echo $data['fc'] ?></p>
+      				<p class="form-control"><?php echo $data['cel'] ?></p>
     			</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Índice de Cocção:</label>
+				<label class="col-sm-2 control-label">Cartão:</label>
 				<div class="col-sm-10">
-      				<p class="form-control"><?php echo $data['ic'] ?></p>
+      				<p class="form-control"><?php echo $data['cartao'] ?></p>
+    			</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Valor:</label>
+				<div class="col-sm-10">
+      				<p class="form-control"><?php echo ('R$ '.$data['valor']) ?></p>
+    			</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Parcelas:</label>
+				<div class="col-sm-10">
+      				<p class="form-control"><?php echo $data['qtd_parcela'] ?></p>
+    			</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Valor Parcela:</label>
+				<div class="col-sm-10">
+      				<p class="form-control"><?php echo ('R$ '.$data['valor_parcela']) ?></p>
+    			</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Valor Total :</label>
+				<div class="col-sm-10">
+      				<p class="form-control"><?php echo ('R$ '.$data['valor_total']) ?></p>
     			</div>
 			</div>
 			<div class="form-group">
@@ -102,7 +130,7 @@ if($_GET['id']) {
     			</div>
 			</div>
 			<div class="form-group">
-				<a href="produto.php"><button class='btn btn-sm btn-success active' type='button'><span class='glyphicon glyphicon-arrow-left'></span> Retornar</button></a>
+				<a href="simulacao.php"><button class='btn btn-sm btn-success active' type='button'><span class='glyphicon glyphicon-arrow-left'></span> Retornar</button></a>
 			</div>
 		</form>	
 	</div>
