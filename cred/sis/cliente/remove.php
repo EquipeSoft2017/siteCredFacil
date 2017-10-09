@@ -45,7 +45,11 @@ if($_GET['id']) {
 <br>
 <body>
 <div class="container-fluid">
+<<<<<<< HEAD
 <h4 class="page-header">Deseja realmente excluir o cliente: <?php echo mb_convert_case($dataDft['nome'],MB_CASE_UPPER) ?> - CPF: <?php echo($dataDft['cpf']) ?>.</h4>
+=======
+<h4 class="page-header">Deseja realmente excluir o cliente: <?php echo mb_convert_case($dataDft['nome'],MB_CASE_UPPER) ?> - Celular: <?php echo mb_convert_case($dataDft['celular'], MB_CASE_UPPER) ?>.</h4>
+>>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 
 <form action="dbCliente/remove.php" method="post">
 

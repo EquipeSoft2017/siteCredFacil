@@ -50,6 +50,7 @@ require_once '../../conecta.php';
 			<form name="formemp" method="post" action="dbCliente/create.php">
 
 				<div class="form-group col-md-12">
+<<<<<<< HEAD
 					<label class="col-sm-8 control-label">Nome:
 						<input type="text" class="form-control" name="nome" id="nome" placeholder="Informe o nome" required/>	
 					</label>
@@ -116,6 +117,17 @@ require_once '../../conecta.php';
 					<label class="col-sm-3 control-label">CEP:
 						<input type="text" class="form-control" name="cep" id="cep" placeholder="58.300-000" required/>	
 					</label>
+=======
+					<label class="col-sm-1 control-label">Nome:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="nome" id="nome" placeholder="Informe o nome" required/>	
+						</div>
+					<label class="col-sm-1 control-label">Celular:</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control" name="celular" id="celular" placeholder="(83) 99999-9999" required/>	
+						</div>
+			
+>>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 				</div>
 
 				<div class="form-group">

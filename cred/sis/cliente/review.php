@@ -57,6 +57,7 @@ if($_GET['id']) {
     			</div>
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label class="col-sm-2 control-label">CPF:</label>
 				<div class="col-sm-10">
       				<p class="form-control"><?php echo mb_convert_case($data['cpf'],MB_CASE_UPPER) ?></p>
@@ -84,6 +85,11 @@ if($_GET['id']) {
 				<label class="col-sm-2 control-label">E-mail:</label>
 				<div class="col-sm-10">
       				<p class="form-control"><?php echo ($data['email']) ?></p>
+=======
+				<label class="col-sm-2 control-label">Celular:</label>
+				<div class="col-sm-10">
+      				<p class="form-control"><?php echo mb_convert_case($data['celular'],MB_CASE_UPPER) ?></p>
+>>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
     			</div>
 			</div>
 			
@@ -91,7 +97,11 @@ if($_GET['id']) {
 				<label class="col-sm-2 control-label">Status:</label>
 				<div class="col-sm-10">
       				<p class="form-control"><?php 
+<<<<<<< HEAD
 				            if($data['ativo'] == 1){
+=======
+				            if($data['active'] == 1){
+>>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 								echo ('ATIVO');
 								}else{
 									echo ('INATIVO');
@@ -109,6 +119,7 @@ if($_GET['id']) {
 </html>
 <?php
 }
+<<<<<<< HEAD
 
 function Mask($mask,$str){
 
@@ -121,4 +132,6 @@ function Mask($mask,$str){
     return $mask;
 
 }
+=======
+>>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 ?>
