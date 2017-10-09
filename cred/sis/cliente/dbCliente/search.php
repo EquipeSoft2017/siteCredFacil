@@ -2,10 +2,10 @@
 require_once '../../../conecta.php';
 require_once '../../../valida.php';
 
-	$busca = $_POST['usuarios'];
-	if($busca == 'Localizar Usuário'){
+	$busca = $_POST['clientes'];
+	if($busca == 'Localizar Cliente'){
 		echo "
-	        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/usuario/usuario.php'>
+	        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/cliente/cliente.php'>
 	        <script type='text/javascript'>
 	        	alert('Selecione o item corretamente!');
 	        </script>
@@ -13,7 +13,7 @@ require_once '../../../valida.php';
 	    exit;            
 	}
 	
-	$sql_fs = "SELECT * FROM usuarios WHERE nome = '$busca'";
+	$sql_fs = "SELECT * FROM clientes WHERE nome = '$busca'";
 	$result_fs = $link->query($sql_fs);
 	$data_fs = $result_fs->fetch_assoc();	
 ?>
@@ -37,7 +37,7 @@ require_once '../../../valida.php';
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 	      		<div class="container-fluid">
 	        		<div class="navbar-header">
-	       				 <a class="navbar-brand" href="../../index.php">SIS Control - Usuário</a>
+	       				 <a class="navbar-brand" href="../../index.php">SIS Control - Cliente</a>
 	        		</div>
 
 		        	<div id="navbar" class="navbar-collapse collapse">
@@ -52,7 +52,7 @@ require_once '../../../valida.php';
 	    </nav>
 			<br>
 				<div class="container-fluid">
-					<h4 class="page-header">Usuário:<?php echo (' '.$busca) ?></h4>
+					<h4 class="page-header">Cliente:<?php echo (' '.$busca) ?></h4>
 					<div class="row">
 						<div class="col-md-0"></div>
 						<div class="col-md-12">
@@ -63,28 +63,14 @@ require_once '../../../valida.php';
     								</div>
 							</div>
 							<div class="form-group col-md-6">
-								<label class="col-sm-2 control-label">Função:</label>
+								<label class="col-sm-2 control-label">CPF:</label>
 									<div class="col-sm-10">
-      									<p class="form-control"><?php echo mb_convert_case($data_fs['funcao'],MB_CASE_UPPER) ?></p>
-    								</div>
-							</div>
-							<div class="form-group col-md-6">
-								<label class="col-sm-2 control-label">E-mail:</label>
-									<div class="col-sm-10">
-      									<p class="form-control"><?php echo mb_convert_case($data_fs['email'],MB_CASE_UPPER) ?></p>
-    								</div>
-							</div>
-							<div class="form-group col-md-6">
-								<label class="col-sm-2 control-label">Tipo:</label>
-									<div class="col-sm-10">
-      									<p class="form-control"><?php echo mb_convert_case($data_fs['tipo'],MB_CASE_UPPER) ?></p>
+      									<p class="form-control"><?php echo mb_convert_case($data_fs['cpf'],MB_CASE_UPPER) ?></p>
     								</div>
 							</div>
 						</div>
-						<div class="col-md-0"></div>
-					</div>
 					<div class="container-fluid">
-						<a href='../usuario.php'>
+						<a href='../cliente.php'>
 							<button class='btn btn-sm btn-success active' type='button'>
 								<span class='glyphicon glyphicon-arrow-left'></span> Retornar
 							</button>

@@ -50,39 +50,34 @@ require_once '../../conecta.php';
 			<form name="formemp" method="post" action="dbUsuario/create.php">
 
 				<div class="form-group col-md-12">
-					<label class="col-sm-1 control-label">Nome:</label>
-						<div class="col-sm-5">
-							<input type="text" class="form-control" name="nome" id="nome" placeholder="Informe o nome" required/>	
-						</div>
-			
-					<label class="col-sm-1 control-label">Função:</label>
-						<div class="col-sm-5">
-							<input type="text" class="form-control" name="funcao" id="funcao" placeholder="Informe a função" required/>
-						</div>
+					<label class="col-sm-6 control-label">Nome:
+						<input type="text" class="form-control" name="nome" id="nome" placeholder="Informe o nome" required/>	
+					</label>
+					<label class="col-sm-6 control-label">Função:
+						<input type="text" class="form-control" name="funcao" id="funcao" placeholder="Informe a função" required/>
+					</label>
+					
 				</div>
 
 				<div class="form-group col-md-12">
-					<label class="col-sm-1 control-label">E-mail:</label>
-						<div class="col-sm-3">
-							<input type="text" class="form-control" name="email" id="email" placeholder="Informe o e-mail" required/>
-						</div>
+					<label class="col-sm-4 control-label">E-mail:
+						<input type="text" class="form-control" name="email" id="email" placeholder="Informe o e-mail" required/>
+					</label>	
 				
-					<label class="col-sm-1 control-label">Senha:</label>
-						<div class="col-sm-3">
-							<input type="password" class="form-control" name="senha" id="senha" id="senha" required/>
-						</div>
+					<label class="col-sm-4 control-label">Senha:
+						<input type="password" class="form-control" name="senha" id="senha" id="senha" required/>
+					</label>	
 				
-					<label class="col-sm-1 control-label">Tipo:</label>
-						<div class="col-sm-3">
-							<select class="form-control" id="tipo" name="tipo">	
-								<option>Selecione</option>
-								<?php
-								for ($i=1; $i < 3; $i++) { 
-									echo"<option>".$i."</option>";
-								 } 
-								?>
-							</select>
-						</div>
+					<label class="col-sm-4 control-label">Tipo:
+						<select class="form-control" id="tipo" name="tipo">	
+							<option>Selecione</option>
+							<?php
+							for ($i=1; $i < 3; $i++) { 
+								echo"<option>".$i."</option>";
+							 } 
+							?>
+						</select>
+					</label>	
 				</div>
 
 				<div class="form-group">

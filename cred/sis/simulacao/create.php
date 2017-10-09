@@ -52,7 +52,18 @@ require_once '../../conecta.php';
 				<div class="form-group col-md-12">
 					<label class="col-sm-1 control-label">Cliente:</label>
 						<div class="col-sm-11">
-							<input type="text" class="form-control" name="cliente" id="cliente" placeholder="Informe o Cliente" required/>	
+							<select class="form-control" id="cliente" name="cliente">	
+								<option>Selecione</option>
+						<?php
+							$result_txs = "SELECT id,nome FROM clientes WHERE ativo = 1 ORDER BY nome ASC";
+							$resultado_txs = mysqli_query($link, $result_txs);
+							while($rows_txs = mysqli_fetch_assoc($resultado_txs)){
+								echo"
+								<option>".mb_convert_case($rows_txs['nome'], MB_CASE_UPPER)."</option> 
+								";
+							} 
+						?>		
+							</select>	
 						</div>
 				</div>
 

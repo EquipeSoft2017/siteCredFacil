@@ -24,7 +24,7 @@ if($_POST) {
 
 	if($tipo == $selecione){
 		echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/simulacao/create.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/usuario/create.php'>
 				<script type='text/javascript'>
 						alert('Selecione o tipo de usuário corretamente');
 				</script>

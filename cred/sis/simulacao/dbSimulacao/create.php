@@ -103,13 +103,12 @@ if($_POST) {
 					alert('Registro gravado com Sucesso.');
 				</script>
 			";
+			
+		
 		}else{
-			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/simulacao/simulacao.php'>
-				<script type='text/javascript'>
-					alert('Houve um problema.Tente Novamente.');
-				</script>
-				";
+		
+			echo 
+				"Error" . $sqlSm .  "<br>" . $link->error;
 		}
 
 	$link->close(); 

@@ -50,15 +50,13 @@
 			<form name="formemp" method="post" action="dbTaxa/create.php">
 
 				<div class="form-group col-md-12">
-					<label class="col-sm-1 control-label">Taxa:</label>
-						<div class="col-sm-3">
-							<input type="text" class="form-control" name="taxa" id="taxa" placeholder="Informe a Taxa" required/>	
-						</div>
+					<label class="col-sm-6 control-label">Taxa:
+						<input type="text" class="form-control" name="taxa" id="taxa" placeholder="Informe a Taxa" required/>	
+					</label>	
 
-					<label class="col-sm-1 control-label">Bandeira:</label>
-						<div class="col-sm-7">
-							<input type="text" class="form-control" name="bandeira" id="bandeira" placeholder="Informe a Bandeira" required/>	
-						</div>
+					<label class="col-sm-6 control-label">Bandeira:
+						<input type="text" class="form-control" name="bandeira" id="bandeira" placeholder="Informe a Bandeira" required/>	
+					</label>	
 				</div>
 
 				<div class="form-group">

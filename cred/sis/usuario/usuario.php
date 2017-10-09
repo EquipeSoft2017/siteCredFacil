@@ -74,7 +74,7 @@ $pagina_posterior = $pagina + 1;
 	    </div>
 	</nav>
 	<div class="container-fluid">
-		<h4 class="page-header">Cadastro de Taxa</h4>
+		<h4 class="page-header">Cadastro de Usuário</h4>
 <div class="row">
 	<div class="col-md-0"></div>
 		<div class="col-md-12">
@@ -134,7 +134,7 @@ $pagina_posterior = $pagina + 1;
 						<td>".mb_convert_case($row['email'],MB_CASE_UPPER)."</td>
 						<td>".mb_convert_case($row['tipo'],MB_CASE_UPPER)."</td>
 						<td>
-							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-success active' type='button'><span class='glyphicon glyphicon-search'></span></button></a>
+							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-info active' type='button'><span class='glyphicon glyphicon-eye-open'></span> </button></a>
 							<a href='edit.php?id=".$row['id']."'><button class='btn btn-xs btn-warning active' type='button'><span class='glyphicon glyphicon-edit'></span></button></a>
 							<a href='remove.php?id=".$row['id']."'><button class='btn btn-xs btn-danger active' type='button'><span class='glyphicon glyphicon-remove-sign'></span></button></a>
 						</td>

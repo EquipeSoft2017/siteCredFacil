@@ -28,7 +28,6 @@ $inicio = ($quantidade_pg * $pagina) - $quantidade_pg;
 $pagina_anterior = $pagina - 1;
 $pagina_posterior = $pagina + 1;
 /** Fim da Paginação */
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,7 +52,7 @@ $pagina_posterior = $pagina + 1;
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="container-fluid">
 	        <div class="navbar-header">
-	          <a class="navbar-brand" href="../index.php">SIS Control - Taxa</a>
+	          <a class="navbar-brand" href="../index.php">SIS Control - Cliente</a>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	        	<ul class="nav navbar-nav navbar-right">
@@ -74,11 +73,11 @@ $pagina_posterior = $pagina + 1;
 	    </div>
 	</nav>
 	<div class="container-fluid">
-		<h4 class="page-header">Cadastro de Taxa</h4>
+		<h4 class="page-header">Cadastro de Cliente</h4>
 <div class="row">
 	<div class="col-md-0"></div>
 		<div class="col-md-12">
-			<form class="form-inline" name="frm_search" action="dbTaxa/search.php" method="POST">
+			<form class="form-inline" name="frm_search" action="dbCliente/search.php" method="POST">
 				<div class="form-group col-md-1">
 					<a href="create.php">
             			<button class="btn btn-primary active" type="button">
@@ -87,19 +86,16 @@ $pagina_posterior = $pagina + 1;
          			</a>	
 				</div>
 				<div class="form-group col-md-6">
-					<select class="col-sm-10 form-control" id="taxas" name="taxas">	
-						<option>Localizar Taxa</option>
+					<select class="col-sm-10 form-control" id="clientes" name="clientes">	
+						<option>Localizar Cliente</option>
 						<?php
-							
-							$result_fss = "SELECT id, taxa , bandeira FROM taxas WHERE active = 1 ORDER BY bandeira ASC";
-							$resultado_fss = mysqli_query($link, $result_fss);
-								while($rows_fss = mysqli_fetch_assoc($resultado_fss)){
+							$result_ssm = "SELECT id, nome FROM clientes WHERE ativo = 1 ORDER BY nome ASC";
+							$resultado_ssm = mysqli_query($link, $result_ssm);
+								while($rows_ssm = mysqli_fetch_assoc($resultado_ssm)){
 									echo"
-										<option>".mb_convert_case($rows_fss['taxa'],MB_CASE_UPPER). " - " .mb_convert_case($rows_fss['bandeira'],MB_CASE_UPPER)."</option> 
-										"
-										;
+										<option>".mb_convert_case($rows_ssm['nome'], MB_CASE_UPPER)."</option> 
+										";
 							} 
-									
 						?>
 					</select>
 	        		<button class="btn btn-success" type="submit" name="enviar">
@@ -112,8 +108,8 @@ $pagina_posterior = $pagina + 1;
 			<table class=" table table table-striped table-hover table-bordered table-condensed">
 				<thead class="thead-inverse">
 					<tr>
-						<th class="col-xs-4 col-sm-4 col-md-4 col-lg-4">Taxa</th>
-						<th class="col-xs-7 col-sm-7 col-md-7 col-lg-7">Bandeira</th>
+						<th class="col-xs-7 col-sm-7 col-md-7 col-lg-7">Nome</th>
+						<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">CPF</th>
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Ações</th>
 					</tr>
 				</thead>
@@ -122,14 +118,14 @@ $pagina_posterior = $pagina + 1;
 			
 			//selecionar os itens a serem mostrados na página
 			
-			$result_fts = "SELECT * FROM taxas WHERE active = 1";
-			$resultado_fts = mysqli_query($link, $result_fts);
+			$result_sms = "SELECT * FROM clientes WHERE ativo = 1";
+			$resultado_sms = mysqli_query($link, $result_sms);
 
-			if($resultado_fts->num_rows > 0) {
-				while($row = $resultado_fts->fetch_assoc()) {
+			if($resultado_sms->num_rows > 0) {
+				while($row = $resultado_sms->fetch_assoc()) {
 					echo "<tr>
-						<td>".$row['taxa']."</td>
-						<td>".mb_convert_case($row['bandeira'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['nome'],MB_CASE_UPPER)."</td>
+						<td>".mb_convert_case($row['cpf'],MB_CASE_UPPER)."</td>
 						<td>
 							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-info active' type='button'><span class='glyphicon glyphicon-eye-open'></span> </button></a>
 							<a href='edit.php?id=".$row['id']."'><button class='btn btn-xs btn-warning active' type='button'><span class='glyphicon glyphicon-edit'></span></button></a>
