@@ -14,7 +14,7 @@ require_once '../../../valida.php';
 
 if($_POST) {
 
-<<<<<<< HEAD
+
 	//dados pessoais
 	$nome = $_POST['nome'];
 	$dataNasc = $_POST['data_nascimento'];
@@ -42,9 +42,6 @@ if($_POST) {
 $sql1 = "INSERT INTO `enderecos` (`id`, `rua`, `numero`, `complemento`, `bairro`, `cidade`, `uf`, `cep`, `ativo`,`data_criacao`, `data_atualizacao`) VALUES (NULL, '".$rua."', '".$numero."', '".$complemento."', '".$bairro."', '".$cidade."','".$uf."','".$cep."', DEFAULT, DEFAULT, DEFAULT)";
 
 
-
-
-
 if ($link->query($sql1) === TRUE) {
 
 	$sql2 = "INSERT INTO `clientes` (`id`, `nome`, `endereco_id`, `data_nascimento`, `cpf`, `rg`, `email`, `celular`,`ativo`,`data_criacao`, `data_atualizacao`) VALUES (NULL, '".$nome."', LAST_INSERT_ID(), '".$dataNasc."', '".$cpf."', '".$rg."', '".$email."','".$celular."', DEFAULT, DEFAULT, DEFAULT)";
@@ -56,24 +53,14 @@ if ($link->query($sql1) === TRUE) {
 		if ($link->query($sql3) === TRUE) {
 
 			echo "
-=======
-	//dados do formulario
-	$nome = $_POST['nome'];
-	$celular = $_POST['celular'];
-	
 
-$sql = "INSERT INTO `clientes` (`id`, `nome`, `celular`, `dt_cadastro`, `dt_atualizado`, `active`) VALUES (NULL, '".$nome."', '".$celular."', DEFAULT, DEFAULT, DEFAULT)";
-
-if ($link->query($sql) === TRUE) {
-	echo "
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/siteCredFacil/cred/sis/cliente/cliente.php'>
 				<script type='text/javascript'>
 						alert('Cadastro realizado com sucesso!');
 				</script>
 			";
 			exit;
-<<<<<<< HEAD
+
 		} else {
 			echo 
 				"Error" . $sql1 . $sql2 . $sql3 .  "<br>" . $link->error;
@@ -88,12 +75,7 @@ if ($link->query($sql) === TRUE) {
 	echo 
 		"Error" . $sql1 .  "<br>" . $link->error;
 		exit;
-=======
-} else {
-	echo 
-			"Error" . $sql . "<br>" . $link->error;
-			exit;
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
 }
 
 $link->close();

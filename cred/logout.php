@@ -2,6 +2,6 @@
 session_start();
 if(session_destroy())
 {
-    header("Location: http://localhost/sitecredfacil/index.php");
+    header("Location: http://localhost/sitecredfacil/index.html");
 }
 ?>

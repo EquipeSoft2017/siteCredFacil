@@ -89,11 +89,8 @@ $pagina_posterior = $pagina + 1;
 					<select class="col-sm-10 form-control" id="clientes" name="clientes">	
 						<option>Localizar Cliente</option>
 						<?php
-<<<<<<< HEAD
+
 							$result_ssm = "SELECT id, nome FROM clientes WHERE ativo = 1 ORDER BY nome ASC";
-=======
-							$result_ssm = "SELECT id, nome FROM clientes WHERE active = 1 ORDER BY nome ASC";
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 							$resultado_ssm = mysqli_query($link, $result_ssm);
 								while($rows_ssm = mysqli_fetch_assoc($resultado_ssm)){
 									echo"
@@ -113,11 +110,9 @@ $pagina_posterior = $pagina + 1;
 				<thead class="thead-inverse">
 					<tr>
 						<th class="col-xs-7 col-sm-7 col-md-7 col-lg-7">Nome</th>
-<<<<<<< HEAD
+
 						<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">CPF</th>
-=======
-						<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Celular</th>
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
 						<th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Ações</th>
 					</tr>
 				</thead>
@@ -126,26 +121,19 @@ $pagina_posterior = $pagina + 1;
 			
 			//selecionar os itens a serem mostrados na página
 			
-<<<<<<< HEAD
+
 			$result_sms = "SELECT * FROM clientes WHERE ativo = 1";
-=======
-			$result_sms = "SELECT * FROM clientes WHERE active = 1";
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
 			$resultado_sms = mysqli_query($link, $result_sms);
 
 			if($resultado_sms->num_rows > 0) {
 				while($row = $resultado_sms->fetch_assoc()) {
 					echo "<tr>
 						<td>".mb_convert_case($row['nome'],MB_CASE_UPPER)."</td>
-<<<<<<< HEAD
+
 						<td>".mb_convert_case($row['cpf'],MB_CASE_UPPER)."</td>
 						<td>
 							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-info active' type='button'><span class='glyphicon glyphicon-eye-open'></span> </button></a>
-=======
-						<td>".mb_convert_case($row['celular'],MB_CASE_UPPER)."</td>
-						<td>
-							<a href='review.php?id=".$row['id']."'><button class='btn btn-xs btn-success active' type='button'><span class='glyphicon glyphicon-search'></span></button></a>
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 							<a href='edit.php?id=".$row['id']."'><button class='btn btn-xs btn-warning active' type='button'><span class='glyphicon glyphicon-edit'></span></button></a>
 							<a href='remove.php?id=".$row['id']."'><button class='btn btn-xs btn-danger active' type='button'><span class='glyphicon glyphicon-remove-sign'></span></button></a>
 						</td>

@@ -7,10 +7,7 @@ if($_GET['id']) {
 	$id = $_GET['id'];
 
 	$sqlts = "SELECT * FROM clientes WHERE id = {$id}";
-<<<<<<< HEAD
-	
-=======
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
 	$resultts = $link->query($sqlts);
 
 	$datat = $resultts->fetch_assoc();
@@ -61,7 +58,7 @@ if($_GET['id']) {
 				</div>
 
 				<div class="form-group">
-<<<<<<< HEAD
+
 					<label class="col-md-2 control-label">CPF:</label>
 						<div class="col-md-10">
 							<input class="col-sm-10 form-control" type="text" name="cpf" value="<?php echo $datat['cpf'] ?>" placeholder="012.345.678-90" required/>
@@ -82,15 +79,6 @@ if($_GET['id']) {
 						</div>
 				</div>
 
-
-=======
-					<label ></label>
-						<div>
-							<input class="col-sm-0" type="hidden" type="text" name="id" value="<?php echo $datat['id'] ?>"/>
-						</div>
-				</div>
-
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Celular:</label>
 						<div class="col-sm-10 ">
@@ -99,63 +87,13 @@ if($_GET['id']) {
 				</div>
 
 				<div class="form-group">
-<<<<<<< HEAD
+
 					<label class="col-sm-2 control-label">E-mail:</label>
 						<div class="col-sm-10 ">
 							<input class="col-sm-10 form-control" type="text" name="email" value="<?php echo $datat['email'] ?>" required/>
 						</div>
 				</div>
-				<!--
 
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Logradouro:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="rua" value="<?php echo $endereco['rua']?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Número:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="numero" value="<?php echo $endereco['numero'] ?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Complemento:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="complemento" value="<?php echo $endereco['complemento'] ?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Bairro:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="bairro" value="<?php echo $endereco['bairro'] ?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Cidade:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="cidade" value="<?php echo $endereco['cidade'] ?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">UF:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="uf" value="<?php echo $endereco['uf'] ?>" required/>
-						</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">CEP:</label>
-						<div class="col-sm-10 ">
-							<input class="col-sm-10 form-control" type="text" name="cep" value="<?php echo $endereco['cep'] ?>" required/>
-						</div>
-				</div>
-				-->
 				<div class="form-group">
 					<label ></label>
 						<div>
@@ -166,8 +104,7 @@ if($_GET['id']) {
 				
 
 				<div class="form-group">
-=======
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
 					<button class="col-sm-2 btn btn-xs btn-success active" type="submit"><span class='glyphicon glyphicon-pencil'></span> Editar</button>
 				</div>
 
