@@ -59,8 +59,8 @@ require ('../valida.php');
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Contas a Pagar</a></li>
-                <li><a href="#">Contas a Receber</a></li>
+                <li><a href="financeiro/contasapagar.php">Contas a Pagar</a></li>
+                <li><a href="financeiro/contasareceber.php">Contas a Receber</a></li>
               </ul>
             </li>
           </ul>
