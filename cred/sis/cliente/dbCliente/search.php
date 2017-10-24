@@ -63,15 +63,11 @@ require_once '../../../valida.php';
     								</div>
 							</div>
 							<div class="form-group col-md-6">
-<<<<<<< HEAD
+
 								<label class="col-sm-2 control-label">CPF:</label>
 									<div class="col-sm-10">
       									<p class="form-control"><?php echo mb_convert_case($data_fs['cpf'],MB_CASE_UPPER) ?></p>
-=======
-								<label class="col-sm-2 control-label">Celular:</label>
-									<div class="col-sm-10">
-      									<p class="form-control"><?php echo mb_convert_case($data_fs['celular'],MB_CASE_UPPER) ?></p>
->>>>>>> 5cb0aea41b5ffed7b0f84863d7653214f66cdd86
+
     								</div>
 							</div>
 						</div>
