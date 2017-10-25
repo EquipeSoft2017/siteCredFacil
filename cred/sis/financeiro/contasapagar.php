@@ -72,6 +72,7 @@ $pagina_posterior = $pagina + 1;
 	        </div>
 	    </div>
 	</nav>
+<<<<<<< HEAD
 		<div class="container-fluid ">
 			<h4 class="page-header">Contas a Pagar</h4>				
 				<div class = "panel panel-success">
@@ -153,5 +154,60 @@ $pagina_posterior = $pagina + 1;
 					</div>
 			   </div>
 	    </div>							
+=======
+		<div class="container-fluid">			
+			<h4 class="page-header">Contas a Pagar</h4>			
+					<div class="row">
+						<div class="col-md-6">							
+							<div class="jumbotron">
+								  <h1 class="display-2"></h1>
+								  	<h4>Contas a Pagar</h4>
+							
+								<div class="btn-group">
+									  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    Action <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu">
+									    <li><a href="#">Action</a></li>
+									    <li><a href="#">Another action</a></li>
+									    <li><a href="#">Something else here</a></li>
+									    <li role="separator" class="divider"></li>
+									    <li><a href="#">Separated link</a></li>
+									  </ul>
+								</div>
+
+						  <hr class="my-2">
+
+							  <div class="list-group">
+							  	<!--
+								  <a href="#" class="list-group-item active">
+								    Cras justo odio
+								  </a>
+								-->
+								  <a href="#" class="list-group-item list-group-item-action">Contas a Pagar</a>
+								  <a href="#" class="list-group-item list-group-item-action">Contas a Receber</a>
+								  <a href="#" class="list-group-item list-group-item-action">Fluxo de Caixa</a>
+								  <a href="#" class="list-group-item list-group-item-action ">Posição de contas</a>
+								  <a href="#" class="list-group-item list-group-item-action">Extrato</a>
+								  <a href="#" class="list-group-item list-group-item-action ">Historico</a>
+								</div>
+								<button type="button" class="btn btn-primary btn-lg btn-block">Editar Categorias</button>
+								<button type="button" class="btn btn-success btn-lg btn-block">Contas Bancárias</button>
+
+							</div>
+						</div>
+							<div class="btn-group">
+						  <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Todas as contas   <span class="caret"></span></button>
+						    <ul class="dropdown-menu">
+								   <li> <a class="dropdown-item" href="#">Action</a></li>
+								   <li><a class="dropdown-item" href="#">Another action</a></li>
+								   <li><a class="dropdown-item" href="#">Something else here</a></li>
+						    </ul>
+						</div>
+				</div>
+			</div>
+	
+		</div>
+>>>>>>> 216c9e1b220ebdf2cd0cddcaf3b0e43bda6de139
 	</body>
 </html>
